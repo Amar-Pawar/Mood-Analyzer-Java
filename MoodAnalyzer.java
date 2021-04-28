@@ -3,32 +3,34 @@ import java.util.*;
 
 public class MoodAnalyzer {
 
+		
+	public String message;
+	public MoodAnalyzer() {
+		
+		
+	}
+	
+	public MoodAnalyzer(String message) throws MoodAnalyserException {
+		super();
+		this.message=message;
+		
+	}
 
-	public static String MoodAnalyzer() throws CustomException {
-		String message=" ";
-		try{
-			if(message==" ")
-				return "Empty";
-			else
-				return "HAPPY";
+	public String analyseMood() throws Exception {
+	try{
+		if(message==null)
+			throw new MoodAnalyserException(Code.NULL,"Null Mood");
+		else if(message.trim().isEmpty())
+			throw new MoodAnalyserException(Code.EMPTY,"Empty Mood");
+		else if(message.toLowerCase().contains("sad")) {
+			System.out.println("SAD");
+			return "SAD";}
+		else if(message.toLowerCase().contains("happy")) {
+			System.out.println("HAPPY");
+			return "HAPPY";	}
 		}catch(NullPointerException e){
-			throw new CustomException("Empty Mood.....Enter valid Mood");
+			throw new MoodAnalyserException(Code.INVALID,"Empty Mood.....Enter valid Mood");
 		}
+		return null;
 	}
-	public static String MoodAnalyzer(String message) throws CustomException {
-		try{
-			if(message==" ")
-				return "Empty";
-			else
-				return "HAPPY";
-		}catch(NullPointerException e){
-			throw new CustomException("Empty Mood.....Enter valid mood ");
-		}
-	}
-}	
-
-	class CustomException extends Exception{
-		public CustomException(String message) {
-		   super(message);
-		}
-	}
+}
