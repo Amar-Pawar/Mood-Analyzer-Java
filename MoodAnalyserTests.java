@@ -1,20 +1,37 @@
 package com.moodAnalyzer;
 import static org.junit.Assert.*;
-
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
+
 public class MoodAnalyserTests 
 {
 
-   	@Test
+	@Test
+    public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_SAD()
+    {	
+		try {
+			String mood=MoodAnalyzer.MoodAnalyzer(null);
+			System.out.println(mood);
+			mood=MoodAnalyzer.MoodAnalyzer();
+			System.out.println(mood);
+	        assertEquals("SAD",mood);
+		}catch(CustomException e) {
 
-	public void testMoodAnalyzer_Constructor_NullMessage_shouldReturn_Happy()
-        {	
-		String mood=MoodAnalyzer.MoodAnalyzer(null);
-		System.out.println(mood);
-		mood=MoodAnalyzer.MoodAnalyzer();
-		System.out.println(mood);
-        assertEquals("HAPPY",mood);
+			System.out.println(e);
+		}
+    }
+	
+	@Test
+    public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_HAPPY()
+    {	
+		try {
+			String mood=MoodAnalyzer.MoodAnalyzer(null);
+			System.out.println(mood);
+			mood=MoodAnalyzer.MoodAnalyzer();
+			System.out.println(mood);
+	        assertEquals("HAPPY",mood);
+		}catch(CustomException e) {
+			System.out.println(e);
+		}
     }
     
 }
