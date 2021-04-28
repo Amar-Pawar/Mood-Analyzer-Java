@@ -1,16 +1,35 @@
 package com.moodAnalyzer;
+import java.util.*;
 
 public class MoodAnalyzer {
 
+		{	
+	public static String MoodAnalyzer() {
+		String message=null;
+		try{
+			if(message.contains("Sad"))
+				return "SAD";
+			else
+				return "HAPPY";
+		}
+		catch(NullPointerException e){
+			return "HAPPY";
+
+		}
+	}
 	
-	public String analyseMood(String message) {
-		if(message.contains("Sad")) {
-			System.out.println("SAD");
-			return "SAD";
+	public static String MoodAnalyzer(String message) {
+		try{
+			if(message.contains("Sad"))
+				return "SAD";
+			else
+				return "HAPPY";
+		}catch(NullPointerException e){
+
+			return "HAPPY";
 		}
-		else {
-			System.out.println("HAPPY");		
-			return "HAPPY";	
-		}
-	}	
+	}
+
+	
+	
 }
